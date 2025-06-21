@@ -3,20 +3,20 @@ import Navigation from "./Navigation.astro"
 import SocialLinks from "./SocialLinks.astro"
 ---
 
-<header class="border-b border-teal-800">
+<header
+  class="border-b border-teal-800 sticky top-0 z-50 bg-teal-950 bg-opacity-50 backdrop-blur-sm"
+>
   <div class="mx-auto px-4 py-3 container">
     <nav class="flex items-center justify-between">
-      <div class="flex-1 text-left">
-        <a href="/" class="flex items-center gap-4 text-white">
-          <div class="w-12 h-12 rounded-full overflow-hidden">
-            <img
-              src="/andna-metallica.svg"
-              alt="Home"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <span class="font-bold text-lg">andna.dev</span>
+      <div class="flex-1 text-left flex items-center gap-4 text-white">
+        <a href="/" class="w-12 h-12 rounded-full overflow-hidden">
+          <img
+            src="/andna-metallica.svg"
+            alt="Home"
+            class="w-full h-full object-cover"
+          />
         </a>
+        <span class="font-bold text-lg">andna.dev</span>
       </div>
       <div class="flex-1 flex justify-center">
         <Navigation />

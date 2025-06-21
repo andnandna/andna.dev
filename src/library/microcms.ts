@@ -6,10 +6,23 @@ const client = createClient({
   apiKey: import.meta.env.MICROCMS_API_KEY,
 })
 
+type Eyecatch = {
+  url: string
+  width: number
+  height: number
+}
+
+type Tags = {
+  id: string
+  name: string
+}[]
+
 export type Blog = {
   title: string
   content: string
   description: string
+  eyecatch?: Eyecatch
+  tags?: Tags
 } & MicroCMSListContent
 
 export const getBlogs = async (queries?: MicroCMSQueries) => {
