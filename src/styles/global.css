@@ -2,6 +2,6 @@
 @plugin "@tailwindcss/typography";
 
 body {
-  background-color: #253323;
+  background-color: theme('colors.teal.950');
   color: #fff;
 }
