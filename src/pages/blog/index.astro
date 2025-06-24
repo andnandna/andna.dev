@@ -8,7 +8,27 @@ const blogs = await getBlogs()
 
 <BaseLayout pageTitle={pageTitle}>
   <main class="container mx-auto max-w-6xl px-4 py-8">
-    <h1 class="text-4xl font-bold text-white text-center mb-12">Blog</h1>
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-white">Blog</h1>
+      <a
+        href="/rss.xml"
+        class="text-teal-500 hover:text-teal-300 text-sm inline-flex items-center gap-2 mt-2"
+        title="RSSフィードを購読"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.031-13.015-10.563-23.54-24-23.58v4.412z"
+          ></path>
+        </svg>
+        RSSフィードを購読
+      </a>
+    </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         blogs.contents.map((blog) => (
