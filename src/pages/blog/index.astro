@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import { getBlogs } from "../../library/microcms"
+import BlogCard from "../../components/BlogCard.astro"
 
 const pageTitle = "Blog - andna.dev"
 const blogs = await getBlogs()
@@ -30,47 +31,7 @@ const blogs = await getBlogs()
       </a>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {
-        blogs.contents.map((blog) => (
-          <a
-            href={`/blog/${blog.id}`}
-            class="block bg-teal-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
-          >
-            {blog.eyecatch ? (
-              <img
-                src={blog.eyecatch.url}
-                alt={blog.title}
-                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            ) : (
-              <img
-                src="/andna-metallica.svg"
-                alt={blog.title}
-                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            )}
-            <div class="p-6">
-              <h2 class="text-xl font-bold text-white mb-2">{blog.title}</h2>
-              <p class="text-white/80 text-sm mb-4 line-clamp-3">
-                {blog.description || ""}
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {blog.tags && blog.tags.length > 0 ? (
-                  blog.tags.map((tag) => (
-                    <span class="bg-teal-700 text-white text-xs px-2 py-1 rounded-full">
-                      {tag.name}
-                    </span>
-                  ))
-                ) : (
-                  <span class="bg-teal-700 text-white text-xs px-2 py-1 rounded-full">
-                    未分類
-                  </span>
-                )}
-              </div>
-            </div>
-          </a>
-        ))
-      }
+      {blogs.contents.map((blog) => <BlogCard blog={blog} />)}
     </div>
   </main>
 </BaseLayout>
